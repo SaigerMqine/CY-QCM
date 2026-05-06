@@ -1,7 +1,7 @@
 # CY-QCM
 plan :
-struct qcm
-struct question
+struct qcm(fini)
+struct question(fini)
 fonction créer question
 fonction créer qcm 
 fonctioner afficher qcm
