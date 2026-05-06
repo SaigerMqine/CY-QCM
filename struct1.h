@@ -4,17 +4,15 @@
 #include <time.h>
 #include <string.h>
 
-#define QUESTION 150
-#define REPONSE 100
-#define NOM_QCM 200
+#define QUESTION 250
+#define REPONSE 200
 
 
 typedef struct {
     char question[QUESTION];
-    char un[REPONSE];
-    char deux[REPONSE];
-    char trois[REPONSE];
-    char quatre[REPONSE];
+    
+    int nb_reponse_propose;
+    char **proposition;
     
     int point_vrai;
     int point_faux;
@@ -23,9 +21,4 @@ typedef struct {
     int *reponse; 
 }Questions;
 
- typedef struct {
-char Nom[NOM_QCM];
-int nb_questions;
-Questions* question_qcm;
-}Qcm;
 
