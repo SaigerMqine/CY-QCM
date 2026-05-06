@@ -1,3 +1,3 @@
 
 int verifint();
-char* verif_nom_qcm(){
+char* verif_nom_qcm();
