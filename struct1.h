@@ -6,7 +6,7 @@
 
 #define QUESTION 150
 #define REPONSE 100
-#define Nom_qcm 200
+#define NOM_QCM 200
 
 
 typedef struct {
