@@ -12,12 +12,12 @@ int verifint(){            //verifie les int
 
 
 char* verif_nom_qcm(){            //verifie les noms
-char* name = malloc(QUESTION* sizeof(char)); 
+char* name = malloc(Nom_qcm* sizeof(char)); 
     if (name == NULL) {
         printf("erreur malloc\n");
         exit(1);
     }
-     if (fgets(name, QUESTION, stdin) != NULL) {
+     if (fgets(name, Nom_qcm, stdin) != NULL) {
         size_t len = strlen(name);
     }
 else {
@@ -27,3 +27,5 @@ else {
     }
     return name;
 }
+
+    
