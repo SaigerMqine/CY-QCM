@@ -16,6 +16,10 @@ int main(){
         verif_mdp(mdp1,mdp2,mpd3,mpd3);
         creer_qcm();
         break;
+        case 4:
+        verif_mdp(mdp1,mdp2,mpd3,mpd3);
+        changer_mdp(&mdp1,&mdp2,&mdp3,&mdp4);
+        break;
         
     }
     return 0;
