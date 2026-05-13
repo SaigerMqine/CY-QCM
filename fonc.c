@@ -41,6 +41,18 @@ Questions creerQuestions(){
 	
 }
 
+
+int mode1(){
+    int n = 0;
+    printf("tape 1 si tu es élève\ntape 2 si tu es prof\n");
+    n= verifint();
+        while (n!=1 && n!=2){
+            printf("la saisie n'est pas valide, choisis 1, ou 2");
+            n= verifint();
+		}
+}
+
+
 int mode2(){
     int n = 0;
     printf("tape 1 pour afficher les qcm\ntape 2 pour créer un qcm\ntape 3 pour changer le mot de passe\n");
