@@ -34,11 +34,15 @@ Questions creerQuestions(){
 	printf("Combien de bonne reponse pour cet question ?\n");
 	q.nb_reponse = verifint();
 	
-	q.question = malloc(sizeof(int)*nb_reponse);
-	if (q.question == NULL){
+	q.reponse = malloc(sizeof(int)*q.nb_reponse);
+	if (q.reponse == NULL){
 		exit(1);
 	}
-	
+	for(int i = 0; i<q.nb_reponse; i++){
+		printf("quelle(s) est(sont) la(es) bonne(s) reponse \n");
+		scanf("%d", &q.reponse[i]);
+	}
+	return q;
 }
 
 
