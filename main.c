@@ -18,7 +18,7 @@ int main(){
                     afficher_qcm();
                 break;
                 case 2 :
-                    creer_qcm();
+                    creer_QCM();
                 break;
                 case 3 :
                     changer_mdp(&mdp1,&mdp2,&mdp3,&mdp4);
