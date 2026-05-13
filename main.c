@@ -1,6 +1,6 @@
 int main(){
     int mdp1=0;
-    int mpd2=0;
+    int mdp2=0;
     int mdp3=6;
     int mdp4=7;
     int valide;
@@ -11,7 +11,7 @@ int main(){
         break;
         case 2 :
             do{
-                valide =verif_mdp(mdp1,mdp2,mpd3,mpd4);
+                valide =verif_mdp(mdp1,mdp2,mdp3,mdp4);
             }while(valide !=1);
             switch(mode2()){ 
                 case 1 :
