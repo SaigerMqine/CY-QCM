@@ -28,3 +28,12 @@ int nb_questions;
 Questions* question_qcm;
 }Qcm;
 
+
+Questions creerQuestions();
+Qcm creer_QCM();
+int mode1();
+int mode2();
+void sauvegarder_qcm();
+int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4);
+
+
