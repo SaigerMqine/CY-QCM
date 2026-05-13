@@ -48,5 +48,11 @@ int mode(){
         while (n!=1 && n!=2 && n!=3){
             printf("la saisie n'est pas valide, choisis 1, 2, ou 3");
             n= verifint();
+		}
+}
+
+
+
+			
          }
 }
