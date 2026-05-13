@@ -6,6 +6,7 @@
 
 #define QUESTION 250
 #define REPONSE 200
+#define Nom_qcm 200
 
 
 typedef struct {
@@ -20,5 +21,10 @@ typedef struct {
     int nb_reponse; 
     int *reponse; 
 }Questions;
-
+ 
+ typedef struct {
+char Nom[nom_qcm];
+int nb_questions;
+Questions* question_qcm;
+}Qcm;
 
