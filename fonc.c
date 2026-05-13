@@ -93,7 +93,7 @@ void sauvegarder_qcm(Refuge *refuge) {
     printf("Sauvegarde reussie (%d animaux).\n", refuge->nombre_animaux);
 }
 
-int verif_mdp(int mdp1,int mdp2;int mdp3,int mdp4){
+int verif_mdp(int mdp1,int mdp2,int mdp3,int mdp4){
 	int verif_mdp1,verif_mdp2,verif_mdp3,verif_mdp4;
 	printf("mot de passe");
 	scanf("%d"&verif_mdp1);
