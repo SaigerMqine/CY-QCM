@@ -96,10 +96,10 @@ void sauvegarder_qcm(Refuge *refuge) {
 int verif_mdp(int mdp1,int mdp2,int mdp3,int mdp4){
 	int verif_mdp1,verif_mdp2,verif_mdp3,verif_mdp4;
 	printf("mot de passe");
-	scanf("%d"&verif_mdp1);
-	scanf("%d"&verif_mdp2);
-	scanf("%d"&verif_mdp3);
-	scanf("%d"&verif_mdp4);
+	scanf("%d", &verif_mdp1);
+	scanf("%d", &verif_mdp2);
+	scanf("%d", &verif_mdp3);
+	scanf("%d", &verif_mdp4);
 	if(verif_mdp1 !=mdp1||verif_mdp2 !=mdp2||verif_mdp3 !=mdp3||verif_mdp4 !=mdp4){
 	printf("le mot de passe est faux");
 	return 0;
