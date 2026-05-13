@@ -14,7 +14,7 @@ Questions creerQuestions(){
 	if (q.proposition == NULL){
 		exit(2);
 	}
-	for (int i=0; i<nb_reponse_propose; i++){
+	for (int i=0; i<q.nb_reponse_propose; i++){
 		q.proposition[i] = malloc(sizeof(char)*REPONSE);
 		if (q.proposition[i] == NULL){
 			exit(3);
