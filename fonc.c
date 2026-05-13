@@ -41,9 +41,9 @@ Questions creerQuestions(){
 	
 }
 
-int mode(){
+int mode2(){
     int n = 0;
-    printf("tape 1 pour répondre a un qcm \ntape 2 pour afficher les qcm\ntape 3 pour créer un qcm\n");
+    printf("tape 1 pour afficher les qcm\ntape 2 pour créer un qcm\ntape 3 pour changer le mot de passe\n");
     n= verifint();
         while (n!=1 && n!=2 && n!=3){
             printf("la saisie n'est pas valide, choisis 1, 2, ou 3");
