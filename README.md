@@ -4,8 +4,10 @@ struct qcm(fini)
 struct question(fini)
 fonction mode 1 et 2(fini)
 fonction verif mdp(fini)
-fonction créer qcm 
-fonctioner afficher qcm
+fonction creer question(fini)
+fonction créer qcm (fini)
+fonction sauvegarder qcm
+fonction afficher qcm
 fonction choisir qcm
 fonction afficher question
 fonction repondre
