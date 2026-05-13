@@ -3,13 +3,16 @@ int main(){
     int mpd2=0;
     int mdp3=6;
     int mdp4=7;
+    int valide;
 
     switch(mode1()){ 
         case 1:
             choix_qcm();
         break;
         case 2 :
-            verif_mdp(mdp1,mdp2,mpd3,mpd3);
+            do{
+            valide =verif_mdp(mdp1,mdp2,mpd3,mpd3);
+            }while(valide !=1);
             switch(mode2()){ 
                 case 1 :
                     afficher_qcm();
