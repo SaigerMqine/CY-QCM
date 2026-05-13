@@ -56,3 +56,28 @@ int mode(){
 			
          }
 }
+
+void sauvegarder_animaux(Refuge *refuge) {
+    // cette fonction nous permet de mettre a jour notre fichier texte avec le stockage des habitant du chenYl
+    FILE *f = fopen("EffectifChenYl.txt", "w");
+    if (!f) {
+        printf("Erreur : impossible d'ouvrir le fichier pour sauvegarder.\n");
+        return;
+    }
+
+    for (int i = 0; i < refuge->nombre_animaux; i++) {
+        Animal *a = &refuge->animaux[i];
+        fprintf(f, "%ld\n", a->identifiant);
+        fprintf(f, "%s\n", a->nom);
+        fprintf(f, "%s\n", a->espece);
+        fprintf(f, "%d\n", a->anneeNaissance);
+        fprintf(f, "%.2f\n", a->poids);
+        fprintf(f, "%s\n", strlen(a->commentaire) > 0 ? a->commentaire : "aucun");
+        fprintf(f, "__________________________________________________\n");
+        
+    }
+
+    fclose(f);
+    printf("Sauvegarde reussie (%d animaux).\n", refuge->nombre_animaux);
+}
+
