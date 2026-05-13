@@ -43,10 +43,10 @@ Questions creerQuestions(){
 
 int mode(){
     int n = 0;
-    printf("tape 1 pour répondre a un qcm \ntape 2 pour afficher les qcm\ntape 3 pour créer un qcm\ntape 4 pour changer le mot de passe\n");
+    printf("tape 1 pour répondre a un qcm \ntape 2 pour afficher les qcm\ntape 3 pour créer un qcm\n");
     n= verifint();
-        while (n!=1 && n!=2 && n!=3 && n!=4){
-            printf("la saisie n'est pas valide, choisis 1, 2, 3 ou 4");
+        while (n!=1 && n!=2 && n!=3){
+            printf("la saisie n'est pas valide, choisis 1, 2, ou 3");
             n= verifint();
          }
 }
