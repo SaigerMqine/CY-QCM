@@ -23,7 +23,7 @@ typedef struct {
 }Questions;
  
  typedef struct {
-char Nom[nom_qcm];
+char Nom[Nom_qcm];
 int nb_questions;
 Questions* question_qcm;
 }Qcm;
