@@ -57,7 +57,7 @@ int mode(){
          }
 }
 
-void sauvegarder_animaux(Refuge *refuge) {
+void sauvegarder_qcm(Refuge *refuge) {
     // cette fonction nous permet de mettre a jour notre fichier texte avec le stockage des habitant du chenYl
     FILE *f = fopen("EffectifChenYl.txt", "w");
     if (!f) {
