@@ -2,7 +2,8 @@
 plan :
 struct qcm(fini)
 struct question(fini)
-fonction créer question
+fonction mode 1 et 2(fini)
+fonction verif mdp(fini)
 fonction créer qcm 
 fonctioner afficher qcm
 fonction choisir qcm
@@ -11,5 +12,5 @@ fonction repondre
 fonction correction
 
 main()
-choisir les permitions
-mot de passe si prof
+choisir les permitions(fini)
+mot de passe si prof(fini)
