@@ -4,9 +4,9 @@
 #include <time.h>
 #include <string.h>
 
-#define QUESTION 250
-#define REPONSE 200
-#define Nom_qcm 200
+#define QUESTION 500
+#define REPONSE 400
+#define NOM 500
 
 
 typedef struct {
@@ -23,7 +23,7 @@ typedef struct {
 }Questions;
  
  typedef struct {
-char Nom[Nom_qcm];
+char Nom[NOM];
 int nb_questions;
 Questions* question_qcm;
 }Qcm;
