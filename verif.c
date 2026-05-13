@@ -1,3 +1,5 @@
+#include "verif.h"
+
 int verifint(){            //verifie les int
     int d=0;
     char c;
