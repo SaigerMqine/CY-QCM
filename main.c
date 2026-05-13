@@ -4,25 +4,27 @@ int main(){
     int mdp3=6;
     int mdp4=7;
 
-    switch(mode()){ 
+    switch(mode1()){ 
         case 1:
-        choix_qcm();
+            choix_qcm();
         break;
         case 2 :
-        verif_mdp(mdp1,mdp2,mpd3,mpd3);
-        afficher_qcm();
+            verif_mdp(mdp1,mdp2,mpd3,mpd3);
+            switch(mode2()){ 
+                case 1 :
+                    afficher_qcm();
+                break;
+                case 2 :
+                    creer_qcm();
+                break;
+                case 3 :
+                    changer_mdp(&mdp1,&mdp2,&mdp3,&mdp4);
+                break;  
+        }
         break;
-        case 3 :
-        verif_mdp(mdp1,mdp2,mpd3,mpd3);
-        creer_qcm();
-        break;
-        case 4:
-        verif_mdp(mdp1,mdp2,mpd3,mpd3);
-        changer_mdp(&mdp1,&mdp2,&mdp3,&mdp4);
-        break;
-        
     }
-    return 0;
-}
 
+    
+   
+    return 0;
 }
