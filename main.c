@@ -11,7 +11,7 @@ int main(){
         break;
         case 2 :
             do{
-                valide =verif_mdp(mdp1,mdp2,mpd3,mpd3);
+                valide =verif_mdp(mdp1,mdp2,mpd3,mpd4);
             }while(valide !=1);
             switch(mode2()){ 
                 case 1 :
