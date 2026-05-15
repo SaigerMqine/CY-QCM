@@ -52,7 +52,7 @@ Qcm creer_QCM(){
 	printf("Saisi le nom du QCM ? (ATTENTION il y a 400 caractère maximum!!!!!)\n");
 	scanf("%s", &f.Nom);
 
-	printf("Combien de questions le QCM va avoir de questions\n");
+	printf("Combien de questions le QCM va avoir ?\n");
 	f.nb_questions = verifint();
 	
 	f.question_qcm = malloc(sizeof(Questions)*f.nb_questions);
