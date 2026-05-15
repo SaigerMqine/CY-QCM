@@ -89,33 +89,32 @@ int mode2(){
 }
 
 
-
-			
-         }
-}
-
-void sauvegarder_qcm(Refuge *refuge) {
-    // cette fonction nous permet de mettre a jour notre fichier texte avec le stockage des habitant du chenYl
-    FILE *f = fopen("EffectifChenYl.txt", "w");
-    if (!f) {
-        printf("Erreur : impossible d'ouvrir le fichier pour sauvegarder.\n");
-        return;
+void sauvegarder_QCM(Qcm *qcm, char *fichier_qcm) {
+    FILE *f = fopen(fichier_qcm, "w");
+    if (f == NULL) {
+        printf("Erreur fichier\n");
+        exit(5);
     }
 
-    for (int i = 0; i < refuge->nombre_animaux; i++) {
-        Animal *a = &refuge->animaux[i];
-        fprintf(f, "%ld\n", a->identifiant);
-        fprintf(f, "%s\n", a->nom);
-        fprintf(f, "%s\n", a->espece);
-        fprintf(f, "%d\n", a->anneeNaissance);
-        fprintf(f, "%.2f\n", a->poids);
-        fprintf(f, "%s\n", strlen(a->commentaire) > 0 ? a->commentaire : "aucun");
-        fprintf(f, "__________________________________________________\n");
-        
-    }
+    fprintf(f, "Nom:%s\n", qcm->Nom);
+    fprintf(f, "NbQuestions:%d\n\n", qcm->nb_questions);
 
+    for (int i = 0; i < qcm->nb_questions; i++) {
+        Questions *q = &qcm->question_qcm[i];
+        fprintf(f, "Question:%s\n", q->question);
+        fprintf(f, "NbRep:%d\n", q->nb_reponse_propose);
+        for (int j = 0; j < q->nb_reponse_propose; j++) {
+            fprintf(f, "%s\n", q->proposition[j]);
+        }
+        fprintf(f, "NbBonnes:%d\n", q->nb_reponse);
+        for (int j = 0; j < q->nb_reponse; j++) {
+            fprintf(f, "%d\n", q->reponse[j]);
+        }
+        fprintf(f, "PointsVrai:%d\n", q->point_vrai);
+        fprintf(f, "PointsFaux:%d\n\n", q->point_faux);
+    }
     fclose(f);
-    printf("Sauvegarde reussie (%d animaux).\n", refuge->nombre_animaux);
+    printf("QCM sauvegardé avec succès !\n");
 }
 
 int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4){
