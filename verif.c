@@ -3,12 +3,14 @@
 int verifint(){            //verifie les int
     int d=0;
     char c;
-    char err;
-    if(scanf("%d%c", &d, &c) == 2 && c == '\n'){ 
-        return d;
-    }
-     else {
+    while(1){
+        if(scanf("%d%c", &d, &c) == 2 && c == '\n'){ 
+            return d;
+        }
+        else{
+            printf("L'entrée n'est pas valide, tape un entier :\n");
             while ((c = getchar()) != '\n' && c != EOF);
+        }
     }
 }
 
