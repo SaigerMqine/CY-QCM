@@ -22,10 +22,10 @@ typedef struct {
     int *reponse; 
 }Questions;
  
- typedef struct {
-char Nom[NOM];
-int nb_questions;
-Questions* question_qcm;
+typedef struct {
+    char Nom[NOM];
+    int nb_questions;
+    Questions* question_qcm;
 }Qcm;
 
 
