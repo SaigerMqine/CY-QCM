@@ -130,3 +130,19 @@ int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4){
 	}
 	return 1;
 	}
+
+void afficherQCM(char *nomFichier) {
+    FILE *f = fopen(nomFichier, "r");
+    if (f == NULL) {
+        printf("Erreur ouverture fichier\n");
+        return;
+    }
+
+    char ligne[500];
+
+    while (fgets(ligne, sizeof(ligne), f) != NULL) {
+        printf("%s", ligne);
+    }
+
+    fclose(f);
+}
