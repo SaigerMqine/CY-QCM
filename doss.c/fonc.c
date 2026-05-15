@@ -4,10 +4,10 @@ Questions creerQuestions(){
 	/// cet fonction permet la création de question qui seront implementer dans un QCM
 	Questions q;
 	
-	printf("Saisi l'intituler de ta question ? (ATTENTION il y a 500 caractère maximum!!!!!)\n");
-	scanf("%s", &q.question);
+	printf("Saisi l'intitulé de ta question ? (ATTENTION il y a 500 caractère maximum!!!!!)\n");
+	scanf("%s", q.question);
 	
-	printf("Combien de propostition de reponse allez vous mettre ?\n");
+	printf("Combien de propostition de réponse allez vous mettre ?\n");
 	q.nb_reponse_propose = verifint();
 	
 	q.proposition = malloc(sizeof(char*)*q.nb_reponse_propose);
@@ -22,29 +22,29 @@ Questions creerQuestions(){
 	}
 	
 	
-	
-	
-	
-	printf("Combien de point l'élève gagne si il repond VRAI\n");
+	printf("Combien de point l'élève gagne si il repond VRAI ?\n");
 	q.point_vrai = verifint();
 	
-	printf("Combien de point l'élève gagne si il repond FAUX\n");
-	q.point_faux = verifint();
+	printf("Combien de point l'élève perds si il repond FAUX ?\n");
+	q.point_faux = verifint()*(-1);
 	
 	printf("Combien de bonne reponse pour cet question ?\n");
 	q.nb_reponse = verifint();
 	
-	q.reponse = malloc(sizeof(int)*q.nb_reponse);
-	if (q.reponse == NULL){
-		exit(1);
+	for (int i=0; i<q.nb_reponse_propose; i++){
+    	q.reponse = malloc(sizeof(int)*q.nb_reponse);
+    	if (q.reponse == NULL){
+    		exit(1);
+    	}
+    		printf("Proposition %d : ", i+1);
+            scanf(" %s", q.proposition[i]);
 	}
 	for(int i = 0; i<q.nb_reponse; i++){
-		printf("quelle(s) est(sont) la(es) bonne(s) reponse \n");
-		scanf("%d", &q.reponse[i]);
+		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ?\n");
+		q.reponse[i]) = verifint();
 	}
 	return q;
 }
-
 
 Qcm creer_QCM(){
 	/// cet fonction permet la créatoin d'un QCM elle appelle la fonction -creerQuestions-
