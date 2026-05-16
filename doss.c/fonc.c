@@ -41,7 +41,7 @@ Questions creerQuestions(){
 	}
 	for(int i = 0; i<q.nb_reponse; i++){
 		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ?\n");
-		q.reponse[i]) = verifint();
+		q.reponse[i] = verifint();
 	}
 	return q;
 }
