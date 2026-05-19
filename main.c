@@ -1,3 +1,6 @@
+#include "fonction.h"
+
+
 int main(){
     int mdp1=0;
     int mdp2=0;
@@ -15,7 +18,7 @@ int main(){
             }while(valide !=1);
             switch(mode2()){ 
                 case 1 :
-                    afficher_qcm();
+                    afficherQCM();
                 break;
                 case 2 :
                     creer_QCM();
