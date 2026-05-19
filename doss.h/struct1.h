@@ -37,4 +37,4 @@ void sauvegarder_qcm();
 int verifint();
 void afficherQCM(char *nom_Fichier);
 int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4);
-void afficherQCM (char *nom_Fichier);
+
