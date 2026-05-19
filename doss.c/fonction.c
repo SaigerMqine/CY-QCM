@@ -1,4 +1,4 @@
-#include "struct1.h"
+#include "fonction.h"
 
 Questions creerQuestions(){
 	/// cet fonction permet la création de question qui seront implementer dans un QCM
