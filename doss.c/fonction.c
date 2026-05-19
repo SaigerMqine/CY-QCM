@@ -62,6 +62,7 @@ Qcm creer_QCM(){
 	for(int i = 0; i<f.nb_questions; i++){
 		f.question_qcm[i] = creerQuestions();
 	}
+	sauvegarder_QCM(f, f.Nom);
 	return f;
 }
 	
@@ -89,18 +90,18 @@ int mode2(){
 }
 
 
-void sauvegarder_QCM(Qcm *qcm, char *fichier_qcm) {
+void sauvegarder_QCM(Qcm qcm, char *fichier_qcm) {
     FILE *f = fopen(fichier_qcm, "w");
     if (f == NULL) {
         printf("Erreur fichier\n");
         exit(5);
     }
 
-    fprintf(f, "Nom:%s\n", qcm->Nom);
-    fprintf(f, "NbQuestions:%d\n\n", qcm->nb_questions);
+    fprintf(f, "Nom:%s\n", qcm.Nom);
+    fprintf(f, "NbQuestions:%d\n\n", qcm.nb_questions);
 
-    for (int i = 0; i < qcm->nb_questions; i++) {
-        Questions *q = &qcm->question_qcm[i];
+    for (int i = 0; i < qcm.nb_questions; i++) {
+        Questions *q = &qcm.question_qcm[i];
         fprintf(f, "Question:%s\n", q->question);
         fprintf(f, "NbRep:%d\n", q->nb_reponse_propose);
         for (int j = 0; j < q->nb_reponse_propose; j++) {
