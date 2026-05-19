@@ -143,6 +143,31 @@ void afficherQCM(char *nomFichier) {
     while (fgets(ligne, sizeof(ligne), f) != NULL) {
         printf("%s", ligne);
     }
-
     fclose(f);
 }
+
+int verifint(){            
+	//verifie les int
+    int d=0;
+    char c;
+    while(1){
+        if(scanf("%d%c", &d, &c) == 2 && c == '\n'){ 
+            return d;
+        }
+        else{
+            printf("L'entrée n'est pas valide, tape un entier :\n");
+            while ((c = getchar()) != '\n' && c != EOF);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
