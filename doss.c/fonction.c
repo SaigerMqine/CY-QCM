@@ -161,7 +161,19 @@ int verifint(){
     }
 }
 
-void afficher_question()
+void afficher_question(char *nomFichier){
+	FILE *f = fopen(nomFichier, "r");
+	if (f == NULL){
+		printf("Le fichier ne s'ouvre pas!!! \n");
+		exit(6);
+	}
+	QCM q;
+	char ligne;
+	if (fgets(ligne, sizeof(ligne), f) != NULL) {
+		strcpy(qcm.Nom, ligne + 4); 
+		qcm.Nom[strcspn(qcm.Nom, "\n")] = '\0';
+    }
+	
 
 
 
