@@ -12,6 +12,7 @@ fonction choisir qcm
 fonction afficher question
 fonction repondre
 fonction correction
+makefile (fini)
 
 main()
 choisir les permitions(fini)
