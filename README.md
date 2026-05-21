@@ -12,6 +12,7 @@ fonction choisir qcm
 fonction afficher question
 fonction repondre
 fonction correction
+fonction charger qcm (fini) 
 makefile (fini)
 
 main()
