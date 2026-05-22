@@ -172,17 +172,19 @@ int verifint(){
     }
 }
 
-void afficher_question(char *nomFichier){
-	FILE *f = fopen(nomFichier, "r");
-	if (f == NULL){
-		printf("Le fichier ne s'ouvre pas!!! \n");
-		exit(6);
-	}
-	Qcm q;
-	char ligne;
-	if (fgets(ligne, sizeof(ligne), f) != NULL) {
-		strcpy(q.Nom, ligne + 4); 
-		q.Nom[strcspn(q.Nom, "\n")] = '\0';
+void afficherQCM(char *nomFichier){
+    Qcm qcm = charger_QCM(nomFichier);
+
+    printf("Nom : %s\n", qcm.Nom);
+
+    for(int i=0;i<qcm.nb_questions;i++){
+        Questions q = qcm.question_qcm[i];
+
+        printf("\nQuestion %d : %s\n", i+1, q.question);
+
+        for(int j=0;j<q.nb_reponse_propose;j++){
+            printf("%d) %s\n", j+1, q.proposition[j]);
+        }
     }
 }
 
