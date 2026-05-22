@@ -4,8 +4,9 @@ Questions creerQuestions(){
 	/// cet fonction permet la création de question qui seront implementer dans un QCM
 	Questions q;
 	
-	printf("Saisi l'intitulé de ta question ? (ATTENTION il y a 500 caractère maximum!!!!!)\n");
-	scanf("%s", q.question);
+	printf("Saisis l'intitulé de ta question. (ATTENTION il y a 500 caractère maximum!!!!!)\n");
+	fgets(q.question, QUESTION, stdin);
+	q.question[strcspn(q.question, "\n")] = '\0';
 	
 	printf("Combien de propostition de réponse allez vous mettre ?\n");
 	q.nb_reponse_propose = verifint();
@@ -22,13 +23,13 @@ Questions creerQuestions(){
 	}
 	
 	
-	printf("Combien de point l'élève gagne si il repond VRAI ?\n");
+	printf("Combien de point l'élève gagne si il répond VRAI ?\n");
 	q.point_vrai = verifint();
 	
-	printf("Combien de point l'élève perds si il repond FAUX ?\n");
+	printf("Combien de point l'élève perds si il répond FAUX ?\n");
 	q.point_faux = verifint()*(-1);
 	
-	printf("Combien de bonne reponse pour cet question ?\n");
+	printf("Combien de bonne réponse pour cette question ?\n");
 	q.nb_reponse = verifint();
 	
 	q.reponse = malloc(sizeof(int)*q.nb_reponse);
@@ -37,10 +38,11 @@ Questions creerQuestions(){
     }
 	for (int i=0; i<q.nb_reponse_propose; i++){
     	printf("Proposition %d : ", i+1);
-        scanf(" %s", q.proposition[i]);
+        fgets(q.proposition[i], REPONSE, stdin);
+	q.proposition[i][strcspn(q.proposition[i], "\n")] = '\0';
 	}
 	for(int i = 0; i<q.nb_reponse; i++){
-		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ?\n");
+		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ?\n (Rentrer le numéro des réponses justes une par une.)");
 		q.reponse[i] = verifint();
 	}
 	return q;
@@ -49,8 +51,9 @@ Questions creerQuestions(){
 Qcm creer_QCM(){
 	/// cet fonction permet la créatoin d'un QCM elle appelle la fonction -creerQuestions-
 	Qcm f;
-	printf("Saisi le nom du QCM ? (ATTENTION il y a 400 caractère maximum!!!!!)\n");
-	scanf("%s", f.Nom);
+	printf("Saisis le nom du QCM (ATTENTION il y a 400 caractère maximum!!!!!)\n");
+	fgets(f.Nom, NOM, stdin);
+	f.Nom[strcspn(f.Nom, "\n")] = '\0';
 
 	printf("Combien de questions le QCM va avoir ?\n");
 	f.nb_questions = verifint();
@@ -130,31 +133,32 @@ void sauvegarder_QCM(Qcm qcm, char *fichier_qcm) {
 
 int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4){
 	int verif_mdp1,verif_mdp2,verif_mdp3,verif_mdp4;
-	printf("mot de passe\n");
+	printf("Rentrer le mot de passe : (Entrez les 4 chiffres un par un).\n");
 	scanf("%d", &verif_mdp1);
 	scanf("%d", &verif_mdp2);
 	scanf("%d", &verif_mdp3);
 	scanf("%d", &verif_mdp4);
 	if(verif_mdp1 !=mdp1||verif_mdp2 !=mdp2||verif_mdp3 !=mdp3||verif_mdp4 !=mdp4){
-		printf("le mot de passe est faux\n");
+		printf("le mot de passe est faux, réssayez\n");
 		return 0;
 	}
 	return 1;
 }
 
-void afficherQCM(char *nomFichier) {
-    FILE *f = fopen(nomFichier, "r");
-    if (f == NULL) {
-        printf("Erreur ouverture fichier\n");
-        return;
-    }
+void afficherQCM(char *nomFichier){
+    Qcm qcm = charger_QCM(nomFichier);
 
-    char ligne[500];
+    printf("Nom : %s\n", qcm.Nom);
 
-    while (fgets(ligne, sizeof(ligne), f) != NULL) {
-        printf("%s", ligne);
+    for(int i=0;i<qcm.nb_questions;i++){
+        Questions q = qcm.question_qcm[i];
+
+        printf("\nQuestion %d : %s\n", i+1, q.question);
+
+        for(int j=0;j<q.nb_reponse_propose;j++){
+            printf("%d) %s\n", j+1, q.proposition[j]);
+        }
     }
-    fclose(f);
 }
 
 int verifint(){            
@@ -172,19 +176,17 @@ int verifint(){
     }
 }
 
-void afficherQCM(char *nomFichier){
-    Qcm qcm = charger_QCM(nomFichier);
-
-    printf("Nom : %s\n", qcm.Nom);
-
-    for(int i=0;i<qcm.nb_questions;i++){
-        Questions q = qcm.question_qcm[i];
-
-        printf("\nQuestion %d : %s\n", i+1, q.question);
-
-        for(int j=0;j<q.nb_reponse_propose;j++){
-            printf("%d) %s\n", j+1, q.proposition[j]);
-        }
+void afficher_question(char *nomFichier){
+	FILE *f = fopen(nomFichier, "r");
+	if (f == NULL){
+		printf("Le fichier ne s'ouvre pas!!! \n");
+		exit(6);
+	}
+	Qcm q;
+	char ligne[500];
+	if (fgets(ligne, sizeof(ligne), f) != NULL) {
+		strcpy(q.Nom, ligne + 4); 
+		q.Nom[strcspn(q.Nom, "\n")] = '\0';
     }
 }
 
@@ -249,11 +251,3 @@ Qcm charger_QCM(char *nomFichier) {
     printf("QCM chargé avec succès !\n");
     return qcm;
 }
-
-
-
-
-
-
-
-
