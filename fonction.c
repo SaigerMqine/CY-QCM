@@ -4,7 +4,7 @@ Questions creerQuestions(){
 	/// cet fonction permet la création de question qui seront implementer dans un QCM
 	Questions q;
 	
-	printf("Saisi l'intitulé de ta question ? (ATTENTION il y a 500 caractère maximum!!!!!)\n");
+	printf("Saisi l'intitulé de ta question. (ATTENTION il y a 500 caractère maximum!!!!!)\n");
 	scanf("%s", q.question);
 	
 	printf("Combien de propostition de réponse allez vous mettre ?\n");
