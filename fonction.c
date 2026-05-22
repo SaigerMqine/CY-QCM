@@ -4,7 +4,7 @@ Questions creerQuestions(){
 	/// cet fonction permet la création de question qui seront implementer dans un QCM
 	Questions q;
 	
-	printf("Saisi l'intitulé de ta question. (ATTENTION il y a 500 caractère maximum!!!!!)\n");
+	printf("Saisi l'intitulé de ta question ? (ATTENTION il y a 500 caractère maximum!!!!!)\n");
 	scanf("%s", q.question);
 	
 	printf("Combien de propostition de réponse allez vous mettre ?\n");
@@ -50,7 +50,7 @@ Qcm creer_QCM(){
 	/// cet fonction permet la créatoin d'un QCM elle appelle la fonction -creerQuestions-
 	Qcm f;
 	printf("Saisi le nom du QCM ? (ATTENTION il y a 400 caractère maximum!!!!!)\n");
-	scanf("%s", &f.Nom);
+	scanf("%s", f.Nom);
 
 	printf("Combien de questions le QCM va avoir ?\n");
 	f.nb_questions = verifint();
@@ -62,6 +62,16 @@ Qcm creer_QCM(){
 	for(int i = 0; i<f.nb_questions; i++){
 		f.question_qcm[i] = creerQuestions();
 	}
+	
+	FILE *fichier = fopen("nom_qcm.txt", "w");
+	if (fichier == NULL){
+		printf("Erreur dans l'ouverture du fichier");
+		exit(8);
+	}
+	fprintf(fichier, "%s\n", f.Nom);
+	fclose(fichier);
+	
+	
 	sauvegarder_QCM(f, f.Nom);
 	return f;
 }
@@ -130,21 +140,27 @@ int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4){
 		return 0;
 	}
 	return 1;
-	}
+}
 
-void afficherQCM(char *nomFichier) {
-    FILE *f = fopen(nomFichier, "r");
+void afficherQCM() {
+    FILE *f = fopen("nom_qcm.txt", "r");
     if (f == NULL) {
         printf("Erreur ouverture fichier\n");
         return;
     }
+	char ligne;
+	int compteur = 1;
 
-    char ligne[500];
+	printf("\n--- Liste des QCM disponibles ---\n");
 
-    while (fgets(ligne, sizeof(ligne), f) != NULL) {
-        printf("%s", ligne);
+	while (fgets(ligne, sizeof(ligne), f) != NULL) {
+        printf("%d. %s", compteur, ligne);
+        compteur++;
     }
-    fclose(f);
+    if (compteur == 1) {
+        printf("Aucun QCM n'est enregistré.\n");
+    }
+	fclose(f);
 }
 
 int verifint(){            
@@ -168,13 +184,13 @@ void afficher_question(char *nomFichier){
 		printf("Le fichier ne s'ouvre pas!!! \n");
 		exit(6);
 	}
-	QCM q;
+	Qcm q;
 	char ligne;
 	if (fgets(ligne, sizeof(ligne), f) != NULL) {
 		strcpy(qcm.Nom, ligne + 4); 
 		qcm.Nom[strcspn(qcm.Nom, "\n")] = '\0';
     }
-	
+}
 
 Qcm charger_QCM(char *nomFichier) {
     FILE *f = fopen(nomFichier, "r");
