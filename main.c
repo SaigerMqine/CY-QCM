@@ -7,6 +7,7 @@ int main(){
     int mdp3=6;
     int mdp4=7;
     int valide;
+    char nom[200];
 
     switch(mode1()){ 
         case 1:
@@ -18,7 +19,9 @@ int main(){
             }while(valide !=1);
             switch(mode2()){ 
                 case 1 :
-                    afficherQCM();
+                    printf("Entrez le nom du QCM que vus voulez voir :\n");
+                	scanf("%s", nom);
+                	afficherQCM(nom);
                 break;
                 case 2 :
                     creer_QCM();
