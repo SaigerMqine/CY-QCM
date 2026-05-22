@@ -20,7 +20,8 @@ int main(){
             switch(mode2()){ 
                 case 1 :
                     printf("Entrez le nom du QCM que vus voulez voir :\n");
-                	scanf("%s", nom);
+                	fgets(nom, 200, stdin);
+			        nom[strcspn(nom, "\n")] = '\0';
                 	afficherQCM(nom);
                 break;
                 case 2 :
