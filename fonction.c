@@ -142,25 +142,19 @@ int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4){
 	return 1;
 }
 
-void afficherQCM() {
-    FILE *f = fopen("nom_qcm.txt", "r");
+void afficherQCM(char *nomFichier) {
+    FILE *f = fopen(nomFichier, "r");
     if (f == NULL) {
         printf("Erreur ouverture fichier\n");
         return;
     }
-	char ligne;
-	int compteur = 1;
 
-	printf("\n--- Liste des QCM disponibles ---\n");
+    char ligne[500];
 
-	while (fgets(ligne, sizeof(ligne), f) != NULL) {
-        printf("%d. %s", compteur, ligne);
-        compteur++;
+    while (fgets(ligne, sizeof(ligne), f) != NULL) {
+        printf("%s", ligne);
     }
-    if (compteur == 1) {
-        printf("Aucun QCM n'est enregistré.\n");
-    }
-	fclose(f);
+    fclose(f);
 }
 
 int verifint(){            
@@ -187,8 +181,8 @@ void afficher_question(char *nomFichier){
 	Qcm q;
 	char ligne;
 	if (fgets(ligne, sizeof(ligne), f) != NULL) {
-		strcpy(qcm.Nom, ligne + 4); 
-		qcm.Nom[strcspn(qcm.Nom, "\n")] = '\0';
+		strcpy(q.Nom, ligne + 4); 
+		q.Nom[strcspn(q.Nom, "\n")] = '\0';
     }
 }
 
