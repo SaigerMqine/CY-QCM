@@ -1,0 +1,72 @@
+Nom:Géographie
+NbQuestions:6
+
+Question:Quelle est la capitale de la Norvège ?
+NbRep:4
+Berlin
+Paris
+Oslo
+Stockholm
+NbBonnes:1
+3
+PointsVrai:1
+PointsFaux:-1
+
+Question:Quel numéro correspond au département de l'Aude ?
+NbRep:4
+09
+11
+41
+16
+NbBonnes:1
+2
+PointsVrai:1
+PointsFaux:0
+
+Question:Laquelle de ces villes est la plus peuplée ?
+NbRep:4
+Lyon
+Nice
+Montpellier
+Toulouse
+NbBonnes:1
+1
+PointsVrai:1
+PointsFaux:0
+
+Question:Lequel de ces pays n'est pas en Europe ?
+NbRep:4
+Albanie
+Bosnie-Herzégovine
+Turquie
+Liban
+NbBonnes:1
+4
+PointsVrai:1
+PointsFaux:-1
+
+Question:Quels pays ont plus d'un milliard d'habitants ?
+NbRep:4
+Etats-Unis
+Chine
+Bangladesh
+Inde
+NbBonnes:2
+2
+4
+PointsVrai:1
+PointsFaux:-1
+
+Question:Quels pays ne font pas partie des BRICS+ ?
+NbRep:4
+Pakistan
+Monglie
+Iran
+Arabie saoudite
+NbBonnes:3
+1
+2
+4
+PointsVrai:2
+PointsFaux:0
+
