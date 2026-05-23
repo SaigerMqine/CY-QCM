@@ -326,3 +326,12 @@ void faire_QCM(Qcm qcm){
     }
     printf("\nFin du QCM !\nTon score : %d/%d\n", score, total);
 }
+
+void changer_mdp(int * a1,int * a2,int * a3,int * a4){
+	printf("quel est le nouveau mdp ?\n");
+scanf("%d",a1);
+scanf("%d",a2);
+scanf("%d",a3);
+scanf("%d",a4);
+printf("le nouveau mot de passe est : %d %d %d %d \n",*a1,*a2,*a3,*a4);
+}
