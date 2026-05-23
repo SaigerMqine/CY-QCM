@@ -1,0 +1,57 @@
+Nom:Badminton
+NbQuestions:5
+
+Question:Qui est le Francais le mieux class‚ mondilement en simple homme (il est 4eme mondial)
+NbRep:4
+Toma Junior POPOV
+Arnauld MARKLE
+Thomas PAVEAUD
+Christo POPOV
+NbBonnes:1
+4
+PointsVrai:2
+PointsFaux:-1
+
+Question:Quelle europeen est double champion olympique en 2020 et 2024.
+NbRep:3
+Christo POPOV 
+Viktor AXELSEN
+Thomas PAVEAUD
+NbBonnes:1
+2
+PointsVrai:2
+PointsFaux:-1
+
+Question:Quelle femme Japonaise est chamionne du monde 
+NbRep:3
+Thomas PAVEAUD
+Akane YAMAGUCHI
+An Sae YOUNG
+NbBonnes:1
+2
+PointsVrai:2
+PointsFaux:-1
+
+Question:Qui est un simple joueur du coin sans importance 
+NbRep:5
+Thomas PAVEAUD
+Viktor AXELSEN
+Loan BREDA
+Kunlavut VITIDSARN
+Victor LAI
+NbBonnes:2
+1
+3
+PointsVrai:2
+PointsFaux:-1
+
+Question:Quelle est le meilleur club du monde (aucun parti pris evidament)
+NbRep:3
+FRJM (Jouy le Moutier)
+LVC (Cergy)
+BCP (Pontoise)
+NbBonnes:1
+1
+PointsVrai:5
+PointsFaux:0
+

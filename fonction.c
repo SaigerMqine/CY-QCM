@@ -1,14 +1,14 @@
 #include "fonction.h"
 
 Questions creerQuestions(){
-	/// cet fonction permet la création de question qui seront implementer dans un QCM
+	/// cet fonction permet la creation de question qui seront implementer dans un QCM
 	Questions q;
 	
-	printf("Saisis l'intitulé de ta question. (ATTENTION il y a 500 caractère maximum!!!!!)\n");
+	printf("Saisis l intitule de ta question. (ATTENTION il y a 500 caractere maximum!!!!!)\n");
 	fgets(q.question, QUESTION, stdin);
-	q.question[strcspn(q.question, "\n")] = '\0';
+	q.question[strcspn(q.question, "\n")] =  '\0' ;
 	
-	printf("Combien de propostition de réponse allez vous mettre ?\n");
+	printf("Combien de propostition de reponse allez vous mettre ?\n");
 	q.nb_reponse_propose = verifint();
 	
 	q.proposition = malloc(sizeof(char*)*q.nb_reponse_propose);
@@ -23,13 +23,13 @@ Questions creerQuestions(){
 	}
 	
 	
-	printf("Combien de point l'élève gagne si il répond VRAI ?\n");
+	printf("Combien de point l eleve gagne si il repond VRAI ?\n");
 	q.point_vrai = verifint();
 	
-	printf("Combien de point l'élève perds si il répond FAUX ?\n");
+	printf("Combien de point l eleve perds si il repond FAUX ?\n");
 	q.point_faux = verifint()*(-1);
 	
-	printf("Combien de bonne réponse pour cette question ?\n");
+	printf("Combien de bonne reponse pour cette question ?\n");
 	q.nb_reponse = verifint();
 	
 	q.reponse = malloc(sizeof(int)*q.nb_reponse);
@@ -39,21 +39,21 @@ Questions creerQuestions(){
 	for (int i=0; i<q.nb_reponse_propose; i++){
     	printf("Proposition %d : ", i+1);
         fgets(q.proposition[i], REPONSE, stdin);
-	q.proposition[i][strcspn(q.proposition[i], "\n")] = '\0';
+	q.proposition[i][strcspn(q.proposition[i], "\n")] =  '\0' ;
 	}
 	for(int i = 0; i<q.nb_reponse; i++){
-		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ? (Rentrer le numéro des réponses justes une par une.\n)");
+		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ? (Rentrer le numero des reponses justes une par une.\n)");
 		q.reponse[i] = verifint();
 	}
 	return q;
 }
 
 Qcm creer_QCM(){
-	/// cet fonction permet la créatoin d'un QCM elle appelle la fonction -creerQuestions-
+	/// cet fonction permet la creatoin d un QCM elle appelle la fonction -creerQuestions-
 	Qcm f;
-	printf("Saisis le nom du QCM (ATTENTION il y a 400 caractère maximum!!!!!)\n");
+	printf("Saisis le nom du QCM (ATTENTION il y a 400 caractere maximum!!!!!)\n");
 	fgets(f.Nom, NOM, stdin);
-	f.Nom[strcspn(f.Nom, "\n")] = '\0';
+	f.Nom[strcspn(f.Nom, "\n")] =  '\0' ;
 
 	printf("Combien de questions le QCM va avoir ?\n");
 	f.nb_questions = verifint();
@@ -68,7 +68,7 @@ Qcm creer_QCM(){
 	
 	FILE *fichier = fopen("nom_qcm.txt", "a");
 	if (fichier == NULL){
-		printf("Erreur dans l'ouverture du fichier");
+		printf("Erreur dans l ouverture du fichier");
 		exit(8);
 	}
 	fprintf(fichier, "%s\n", f.Nom);
@@ -83,10 +83,10 @@ Qcm creer_QCM(){
 	
 int mode1(){
     int n = 0;
-    printf("tape 1 si tu es élève\ntape 2 si tu es prof\n");
+    printf("1. Mode eleve\n2. Mode prof\n3. Sortir de l application\n");
     n= verifint();
-        while (n!=1 && n!=2){
-            printf("la saisie n'est pas valide, choisis 1, ou 2");
+        while (n!=1 && n!=2 && n!= 3){
+            printf("la saisie n est pas valide, choisis 1, 2 ou 3");
             n= verifint();
 		}
 }
@@ -94,10 +94,10 @@ int mode1(){
 
 int mode2(){
     int n = 0;
-    printf("tape 1 pour afficher les qcm\ntape 2 pour créer un qcm\ntape 3 pour changer le mot de passe\n");
+    printf("1. Afficher les qcm\n2. Creer un qcm\n3. Changer le mot de passe\n");
     n= verifint();
         while (n!=1 && n!=2 && n!=3){
-            printf("la saisie n'est pas valide, choisis 1, 2, ou 3");
+            printf("la saisie n est pas valide, choisis 1, 2, ou 3");
             n= verifint();
 		}
 }
@@ -128,7 +128,7 @@ void sauvegarder_QCM(Qcm qcm, char *fichier_qcm) {
         fprintf(f, "PointsFaux:%d\n\n", q->point_faux);
     }
     fclose(f);
-    printf("QCM sauvegardé avec succès !\n");
+    printf("QCM sauvegarde avec succes !\n");
 }
 
 int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4){
@@ -139,7 +139,7 @@ int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4){
 	scanf("%d", &verif_mdp3);
 	scanf("%d", &verif_mdp4);
 	if(verif_mdp1 !=mdp1||verif_mdp2 !=mdp2||verif_mdp3 !=mdp3||verif_mdp4 !=mdp4){
-		printf("le mot de passe est faux, réssayez\n");
+		printf("le mot de passe est faux, ressayez\n");
 		return 0;
 	}
 	return 1;
@@ -166,12 +166,12 @@ int verifint(){
     int d=0;
     char c;
     while(1){
-        if(scanf("%d%c", &d, &c) == 2 && c == '\n'){ 
+        if(scanf("%d%c", &d, &c) == 2 && c ==  '\n' ){ 
             return d;
         }
         else{
-            printf("L'entrée n'est pas valide, tape un entier :\n");
-            while ((c = getchar()) != '\n' && c != EOF);
+            printf("L entree n est pas valide, tape un entier :'\n'");
+            while ((c = getchar()) !=  '\n'  && c != EOF);
         }
     }
 }
@@ -179,21 +179,21 @@ int verifint(){
 void afficher_question(char *nomFichier){
 	FILE *f = fopen(nomFichier, "r");
 	if (f == NULL){
-		printf("Le fichier ne s'ouvre pas!!! \n");
+		printf("Le fichier ne s ouvre pas!!! \n");
 		exit(6);
 	}
 	Qcm q;
 	char ligne[500];
 	if (fgets(ligne, sizeof(ligne), f) != NULL) {
 		strcpy(q.Nom, ligne + 4); 
-		q.Nom[strcspn(q.Nom, "\n")] = '\0';
+		q.Nom[strcspn(q.Nom, "\n")] =  '\0' ;
     }
 }
 
 Qcm charger_QCM(char *nomFichier) {
     FILE *f = fopen(nomFichier, "r");
     if (f == NULL) {
-        printf("Erreur : Impossible d'ouvrir le fichier %s\n", nomFichier);
+        printf("Erreur : Impossible d ouvrir le fichier %s\n", nomFichier);
         exit(7);
     }
 
@@ -248,7 +248,7 @@ Qcm charger_QCM(char *nomFichier) {
     }
 
     fclose(f);
-    printf("QCM chargé avec succès !\n");
+    printf("QCM charge avec succes !\n");
     return qcm;
 }
 
@@ -263,12 +263,12 @@ void choix_qcm(){
 
     printf("Liste des QCM disponibles :\n");
     while (fgets(noms[c], NOM, fichier) != NULL){
-        noms[c][strcspn(noms[c], "\n")] = '\0';
+        noms[c][strcspn(noms[c], "\n")] =  '\0' ;
         printf("%d) %s\n", c+1, noms[c]);
         c++;
     }
     fclose(fichier);
-    printf("Choisis un QCM (numéro) :\n");
+    printf("Choisis un QCM (numero) :\n");
     int choix = verifint();
 
     if (choix < 1 || choix > c){
@@ -297,13 +297,13 @@ void faire_QCM(Qcm qcm){
         	printf("%d) %s	", j+1, q.proposition[j]);
         }
 
-        printf("\nCombien de réponses veux-tu donner ?\n");
+        printf("\nCombien de reponses veux-tu donner ?\n");
         int rep = verifint();
-	int *correction = malloc(sizeof(int)*rep);
+	    int *correction = malloc(sizeof(int)*rep);
         int vrai = 0;
 
         for(int k = 0; k < rep; k++){
-            printf("Ta réponse %d : ", k+1);
+            printf("Ta reponse %d : ", k+1);
             correction[k] = verifint();
         }
         for(int l = 0; l < q.nb_reponse; l++){
@@ -316,22 +316,29 @@ void faire_QCM(Qcm qcm){
         }
 
         if(vrai == 1){
-            printf("Bonne réponse, tu gagnes %d points !\n", q.point_vrai);
+            printf("Bonne reponse, tu gagnes %d points !\n", q.point_vrai);
             score = score + q.point_vrai;
         }
 	    else {
-            printf("Mauvaise réponse ! %d points.. dommage\n", q.point_faux);
+            printf("Mauvaise reponse ! %d points.. dommage\n", q.point_faux);
             score = score + q.point_faux;
         }
     }
-    printf("\nFin du QCM !\nTon score : %d/%d\n", score, total);
+    int score_final = (score*20)/20;
+    printf("\nFin du QCM !\nTon score : %d/%d\n", score_final, 20);
 }
 
-void changer_mdp(int * a1,int * a2,int * a3,int * a4){
-	printf("quel est le nouveau mdp ?\n");
-scanf("%d",a1);
-scanf("%d",a2);
-scanf("%d",a3);
-scanf("%d",a4);
-printf("le nouveau mot de passe est : %d %d %d %d \n",*a1,*a2,*a3,*a4);
+void changer_mdp(int *a1,int *a2,int *a3,int *a4){
+	printf("Entree le mot de passe actuel pour le changer.\n");
+    if (verif_mdp (*a1, *a2, *a3, *a4) == 1){
+        printf("quel est le nouveau mdp ?\n");
+        scanf("%d",a1);
+        scanf("%d",a2);
+        scanf("%d",a3);
+        scanf("%d",a4);
+        printf("le nouveau mot de passe est : %d %d %d %d \n",*a1,*a2,*a3,*a4);
+    }
+    else {
+        printf("Vous ne pouvez pas changer le mot de passe sans connaitre l ancien !!!!!! \n");
+    }
 }
