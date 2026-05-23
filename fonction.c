@@ -42,7 +42,7 @@ Questions creerQuestions(){
 	q.proposition[i][strcspn(q.proposition[i], "\n")] = '\0';
 	}
 	for(int i = 0; i<q.nb_reponse; i++){
-		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ?(Rentrer le numéro des réponses justes une par une.)\n");
+		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ? (Rentrer le numéro des réponses justes une par une.\n)");
 		q.reponse[i] = verifint();
 	}
 	return q;
@@ -250,4 +250,79 @@ Qcm charger_QCM(char *nomFichier) {
     fclose(f);
     printf("QCM chargé avec succès !\n");
     return qcm;
+}
+
+void choix_qcm(){
+    FILE *fichier = fopen("nom_qcm.txt", "r");
+    if (fichier == NULL){
+        printf("Erreur ouverture fichier\n");
+        exit(7);
+    }
+    char noms[20][NOM];
+    int c = 0;
+
+    printf("Liste des QCM disponibles :\n");
+    while (fgets(noms[c], NOM, fichier) != NULL){
+        noms[c][strcspn(noms[c], "\n")] = '\0';
+        printf("%d) %s\n", c+1, noms[c]);
+        c++;
+    }
+    fclose(fichier);
+    printf("Choisis un QCM (numéro) :\n");
+    int choix = verifint();
+
+    if (choix < 1 || choix > c){
+        printf("Choix invalide\n");
+        return;
+    }
+    Qcm qcm = charger_QCM(noms[choix-1]);
+    faire_QCM(qcm);
+}
+
+void faire_QCM(Qcm qcm){
+	int score = 0;
+	int total = 0;
+
+    printf("\n=== %s ===\n", qcm.Nom);
+
+    for(int i = 0; i < qcm.nb_questions; i++){
+    	Questions q = qcm.question_qcm[i];
+    	total = total + q.point_vrai;
+
+        printf("\nQuestion %d :\n\n %s\n", i+1, q.question);
+        for(int j = 0; j < q.nb_reponse_propose; j++){
+		if(j==2){
+			printf("\n");
+		}
+        	printf("%d) %s	", j+1, q.proposition[j]);
+        }
+
+        printf("\nCombien de réponses veux-tu donner ?\n");
+        int rep = verifint();
+	int *correction = malloc(sizeof(int)*rep);
+        int vrai = 0;
+
+        for(int k = 0; k < rep; k++){
+            printf("Ta réponse %d : ", k+1);
+            correction[k] = verifint();
+        }
+        for(int l = 0; l < q.nb_reponse; l++){
+            if(correction[l] == q.reponse[l]){
+                vrai=1;
+            }
+            else{
+                vrai = 0;
+            }
+        }
+
+        if(vrai == 1){
+            printf("Bonne réponse, tu gagnes %d points !\n", q.point_vrai);
+            score = score + q.point_vrai;
+        }
+	    else {
+            printf("Mauvaise réponse ! %d points.. dommage\n", q.point_faux);
+            score = score + q.point_faux;
+        }
+    }
+    printf("\nFin du QCM !\nTon score : %d/%d\n", score, total);
 }
