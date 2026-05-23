@@ -38,4 +38,5 @@ int verifint();
 void afficherQCM(char *nom_Fichier);
 int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4);
 Qcm charger_QCM(char *nomFichier);
-
+void faire_QCM(Qcm qcm);
+void choix_qcm();
