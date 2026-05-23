@@ -66,7 +66,7 @@ Qcm creer_QCM(){
 		f.question_qcm[i] = creerQuestions();
 	}
 	
-	FILE *fichier = fopen("nom_qcm.txt", "w");
+	FILE *fichier = fopen("nom_qcm.txt", "a");
 	if (fichier == NULL){
 		printf("Erreur dans l'ouverture du fichier");
 		exit(8);
