@@ -1,0 +1,59 @@
+Nom:Info
+NbQuestions:5
+
+Question:Lesquels sont des langages de programmation ?
+NbRep:4
+C
+U
+R
+A
+NbBonnes:2
+1
+3
+PointsVrai:1
+PointsFaux:-1
+
+Question:Quand le premier ordinateur portable a-t-il été créé ?
+NbRep:4
+1990
+1975
+1984
+1981
+NbBonnes:1
+4
+PointsVrai:2
+PointsFaux:0
+
+Question:Quels langage peut-on utiliser pour du développement web ?
+NbRep:4
+CSS
+JavaScript
+ChucK
+Piet
+NbBonnes:2
+1
+2
+PointsVrai:1
+PointsFaux:0
+
+Question:Comment appelle-t-on une fonction s'appelant elle même ?
+NbRep:3
+exponentielle
+récursive
+linéaire
+NbBonnes:1
+2
+PointsVrai:1
+PointsFaux:-1
+
+Question:En C, quelle écriture permet de passer une ligne en commentaire ?
+NbRep:4
+//
+./
+**
+\\
+NbBonnes:1
+1
+PointsVrai:1
+PointsFaux:0
+
