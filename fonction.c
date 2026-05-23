@@ -42,7 +42,7 @@ Questions creerQuestions(){
 	q.proposition[i][strcspn(q.proposition[i], "\n")] = '\0';
 	}
 	for(int i = 0; i<q.nb_reponse; i++){
-		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ?\n (Rentrer le numéro des réponses justes une par une.)");
+		printf("Quelle(s) est(sont) la(es) bonne(s) reponse ?(Rentrer le numéro des réponses justes une par une.)\n");
 		q.reponse[i] = verifint();
 	}
 	return q;
