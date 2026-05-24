@@ -82,6 +82,7 @@ Qcm creer_QCM(){
 	
 	
 int mode1(){
+	// Cet fonction permet d'afficher l'interface qui va permettre de choisir entre le mode prof et élève
     int n = 0;
     printf("1. Mode eleve\n2. Mode prof\n3. Sortir de l application\n");
     n= verifint();
@@ -93,6 +94,7 @@ int mode1(){
 
 
 int mode2(){
+	// Cet fonction permet d'afficher l'interface qui va permettre de choisir entre les possibles actions dans le mode prof
     int n = 0;
     printf("1. Afficher les qcm\n2. Creer un qcm\n3. Changer le mot de passe\n");
     n= verifint();
@@ -104,6 +106,7 @@ int mode2(){
 
 
 void sauvegarder_QCM(Qcm qcm, char *fichier_qcm) {
+	//Cet fonction permet de sauvgarder les qcm dans des fichier texte sous une forme particulière qui nous permettera de la recuperer plus tard 
     FILE *f = fopen(fichier_qcm, "w");
     if (f == NULL) {
         printf("Erreur fichier\n");
@@ -132,6 +135,7 @@ void sauvegarder_QCM(Qcm qcm, char *fichier_qcm) {
 }
 
 int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4){
+	//Cet fonction permet de verifie le mott de passe pour accédé au mode prof 
 	int verif_mdp1,verif_mdp2,verif_mdp3,verif_mdp4;
 	printf("Rentrer le mot de passe : (Entrez les 4 chiffres un par un).\n");
 	scanf("%d", &verif_mdp1);
@@ -146,6 +150,7 @@ int verif_mdp(int mdp1, int mdp2, int mdp3, int mdp4){
 }
 
 void afficherQCM(char *nomFichier){
+	
     Qcm qcm = charger_QCM(nomFichier);
 
     printf("Nom : %s\n", qcm.Nom);
@@ -177,6 +182,7 @@ int verifint(){
 }
 
 void afficher_question(char *nomFichier){
+	// Cet fonction permet d'affichier les question quand un élève passe un qcm
 	FILE *f = fopen(nomFichier, "r");
 	if (f == NULL){
 		printf("Le fichier ne s ouvre pas!!! \n");
@@ -191,6 +197,7 @@ void afficher_question(char *nomFichier){
 }
 
 Qcm charger_QCM(char *nomFichier) {
+	//Cet fonction permet de récupéré depuis les fichier texte les info des qcm et les mettre sous forme de structure
     FILE *f = fopen(nomFichier, "r");
     if (f == NULL) {
         printf("Erreur : Impossible d ouvrir le fichier %s\n", nomFichier);
@@ -253,6 +260,7 @@ Qcm charger_QCM(char *nomFichier) {
 }
 
 void choix_qcm(){
+	//Cet fonction affiche le nom de tout les qcm existants et de choisir auquelle repondre 
     FILE *fichier = fopen("nom_qcm.txt", "r");
     if (fichier == NULL){
         printf("Erreur ouverture fichier\n");
@@ -280,6 +288,7 @@ void choix_qcm(){
 }
 
 void faire_QCM(Qcm qcm){
+	//Cet fonction permet de passer les qcm dans le mode élève 
 	int score = 0;
 	int total = 0;
 
@@ -329,6 +338,7 @@ void faire_QCM(Qcm qcm){
 }
 
 void changer_mdp(int *a1,int *a2,int *a3,int *a4){
+	//Cet fonction permet de changer le mot de passe pour accede au mode prof 
 	printf("Entree le mot de passe actuel pour le changer.\n");
     if (verif_mdp (*a1, *a2, *a3, *a4) == 1){
         printf("quel est le nouveau mdp ?\n");
