@@ -298,7 +298,7 @@ void faire_QCM(Qcm qcm){
     	Questions q = qcm.question_qcm[i];
     	total = total + q.point_vrai;
 
-        printf("\nQuestion %d :\n\n %s\n", i+1, q.question);
+        printf("\nQuestion %d :\n\n%s\n", i+1, q.question);
         for(int j = 0; j < q.nb_reponse_propose; j++){
 		if(j==2){
 			printf("\n");
